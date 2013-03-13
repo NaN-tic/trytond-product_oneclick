@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!-- This file is part of product_oneclick module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="product_oneclick_view">
+            <field name="model">product.oneclick.view</field>
+            <field name="type">form</field>
+            <field name="name">product_oneclick_view_form</field>
+        </record>
+
+        <record model="ir.action.wizard" id="wizard_product_oneclick">
+            <field name="name">Create Product</field>
+            <field name="wiz_name">product.oneclick</field>
+        </record>
+
+        <menuitem name="Create Product"
+            parent="product.menu_main_product"
+            action="wizard_product_oneclick"
+            id="menu_product_oneclick_wizard"
+            sequence="30"/>
+
+    </data>
+</tryton>

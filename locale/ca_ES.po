@@ -1,0 +1,111 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:product.oneclick:"
+msgid "Product %s (%s) already exist."
+msgstr "El producte %s (%s) ja existeix."
+
+msgctxt "error:product.oneclick:"
+msgid "Warning"
+msgstr "Atenció"
+
+msgctxt "field:product.oneclick.view,category:"
+msgid "Category"
+msgstr "Categoria"
+
+msgctxt "field:product.oneclick.view,code:"
+msgid "Code"
+msgstr "Codi"
+
+msgctxt "field:product.oneclick.view,cost_price:"
+msgid "Cost Price"
+msgstr "Preu de cost"
+
+msgctxt "field:product.oneclick.view,cost_price_method:"
+msgid "Cost Method"
+msgstr "Mètode de cost"
+
+msgctxt "field:product.oneclick.view,default_uom:"
+msgid "Default UOM"
+msgstr "UdM per defecte"
+
+msgctxt "field:product.oneclick.view,default_uom_category:"
+msgid "Default UOM Category"
+msgstr "Categoria per defecte UdM"
+
+msgctxt "field:product.oneclick.view,description:"
+msgid "Description"
+msgstr "Descripció"
+
+msgctxt "field:product.oneclick.view,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:product.oneclick.view,list_price:"
+msgid "List Price"
+msgstr "Preu de venda"
+
+msgctxt "field:product.oneclick.view,name:"
+msgid "Name"
+msgstr "Nom"
+
+msgctxt "field:product.oneclick.view,purchasable:"
+msgid "Purchasable"
+msgstr "Es pot comprar"
+
+msgctxt "field:product.oneclick.view,purchase_uom:"
+msgid "Purchase UOM"
+msgstr "UdM de compra"
+
+msgctxt "field:product.oneclick.view,salable:"
+msgid "Salable"
+msgstr "Pot ser venut"
+
+msgctxt "field:product.oneclick.view,sale_uom:"
+msgid "Sale UOM"
+msgstr "UdM de venda"
+
+msgctxt "field:product.oneclick.view,type:"
+msgid "Type"
+msgstr "Tipus"
+
+msgctxt "model:ir.action,name:wizard_product_oneclick"
+msgid "Create Product"
+msgstr "Crea producte"
+
+msgctxt "model:ir.ui.menu,name:menu_product_oneclick_wizard"
+msgid "Create Product"
+msgstr "Crea producte"
+
+msgctxt "model:product.oneclick.view,name:"
+msgid "Product OneClick View"
+msgstr "Vista producte oneclick"
+
+msgctxt "selection:product.oneclick.view,cost_price_method:"
+msgid "Average"
+msgstr "Mitjana"
+
+msgctxt "selection:product.oneclick.view,cost_price_method:"
+msgid "Fixed"
+msgstr "Fix"
+
+msgctxt "selection:product.oneclick.view,type:"
+msgid "Assets"
+msgstr "Actiu"
+
+msgctxt "selection:product.oneclick.view,type:"
+msgid "Goods"
+msgstr "Bé"
+
+msgctxt "selection:product.oneclick.view,type:"
+msgid "Service"
+msgstr "Servei"
+
+msgctxt "wizard_button:product.oneclick,view,create_:"
+msgid "Create"
+msgstr "Crea"
+
+msgctxt "wizard_button:product.oneclick,view,end:"
+msgid "Cancel"
+msgstr "Cancel·la"

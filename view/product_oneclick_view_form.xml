@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!-- This file is part of product_oneclick module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms. -->
+<form string="Create product" col="4">
+    <label name="name"/>
+    <field name="name"/>
+    <label name="code"/>
+    <field name="code"/>
+    <notebook colspan="6">
+        <page string="General" id="general">
+            <label name="salable"/>
+            <field name="salable"/>
+            <label name="purchasable"/>
+            <field name="purchasable"/>
+            <label name="type"/>
+            <field name="type"/>
+            <label name="category"/>
+            <field name="category"/>
+            <label name="default_uom"/>
+            <field name="default_uom"/>
+        </page>
+        <page string="Sale" id="sale"
+            states="{'invisible': Not(Bool(Eval('salable')))}">
+            <label name="list_price"/>
+            <field name="list_price"/>
+            <label name="sale_uom"/>
+            <field name="sale_uom"/>
+        </page>
+        <page string="Purchase" id="purchase"
+            states="{'invisible': Not(Bool(Eval('purchasable')))}">
+            <label name="cost_price"/>
+            <field name="cost_price"/>
+            <label name="cost_price_method"/>
+            <field name="cost_price_method"/>
+            <label name="purchase_uom"/>
+            <field name="purchase_uom"/>
+        </page>
+        <page string="Description" id="description">
+            <separator name="description" colspan="4"/>
+            <field name="description" colspan="4"/>
+        </page>
+    </notebook>
+</form>
