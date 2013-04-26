@@ -4,7 +4,6 @@
 from trytond.model import ModelView, fields
 from trytond.pool import Pool
 from trytond.pyson import Eval, PYSONEncoder
-from trytond.transaction import Transaction
 from trytond.wizard import Wizard, StateView, StateAction, StateTransition, \
     Button
 
