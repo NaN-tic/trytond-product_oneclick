@@ -42,9 +42,7 @@ class ProductOneClickView(ModelView):
         fields.Many2One('product.uom.category', 'Default UOM Category',
             on_change_with=['default_uom']),
         'on_change_with_default_uom_category')
-    salable = fields.Boolean('Salable', states={
-            'readonly':~Eval('active', True),
-            }, depends=['active'])
+    salable = fields.Boolean('Salable')
     sale_uom = fields.Many2One('product.uom', 'Sale UOM',
         states={
             'invisible':~Eval('salable', False),
@@ -55,9 +53,7 @@ class ProductOneClickView(ModelView):
             #~ ],
         on_change_with=['default_uom', 'sale_uom', 'salable'],
         depends=['salable', 'default_uom_category'])
-    purchasable = fields.Boolean('Purchasable', states={
-            'readonly':~Eval('active', True),
-            }, depends=['active'])
+    purchasable = fields.Boolean('Purchasable')
     purchase_uom = fields.Many2One('product.uom', 'Purchase UOM',
         states={
             'invisible':~Eval('purchasable'),
