@@ -92,15 +92,15 @@ msgstr "Fix"
 
 msgctxt "selection:product.oneclick.view,type:"
 msgid "Assets"
-msgstr "Actiu"
+msgstr "Actius"
 
 msgctxt "selection:product.oneclick.view,type:"
 msgid "Goods"
-msgstr "Bé"
+msgstr "Béns"
 
 msgctxt "selection:product.oneclick.view,type:"
 msgid "Service"
-msgstr "Servei"
+msgstr "Serveis"
 
 msgctxt "wizard_button:product.oneclick,view,create_:"
 msgid "Create"
