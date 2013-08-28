@@ -118,11 +118,9 @@ class ProductOneClick(Wizard):
                 })
 
     @classmethod
-    def get_product_values(self, vals):
+    def get_template_values(self, vals):
         values = {
             'name': vals.name,
-            'code': vals.code,
-            'description': vals.description,
             'type': vals.type,
             'category': vals.category or None,
             'list_price': vals.list_price or 0,
@@ -142,26 +140,43 @@ class ProductOneClick(Wizard):
                 })
         return values
 
+    @classmethod
+    def get_product_values(self, vals):
+        values = {
+            'code': vals.code,
+            'description': vals.description,
+            }
+        return values
+
     def transition_create_(self, values=False):
         '''
         Create a product
         '''
-        ProductProduct = Pool().get('product.product')
+        Template = Pool().get('product.template')
+        Product = Pool().get('product.product')
         name = self.view.name
         code = self.view.code
 
-        product = ProductProduct.search(['OR',
-                ('name', '=', name),
-                ('code', '=', code)])
-        if product:
+        products = None
+        if name:
+            products = Template.search([('name', '=', name)])
+        if code:
+            products = Product.search([('code', '=', code)])
+        if products:
             self.raise_user_error(error="warning",
                 error_description="product_exist",
                 error_description_args=(name, code))
 
         vals = self.view
-        values = self.get_product_values(vals)
+        tpl_values = self.get_template_values(vals)
+        prod_values = self.get_product_values(vals)
 
-        self.product = ProductProduct.create([values])[0]
+        # create template
+        self.template = Template.create([tpl_values])[0]
+        # create product
+        prod_values['template'] = self.template
+        self.product = Product.create([prod_values])[0]
+
         return 'open_'
 
     def do_open_(self, action):
