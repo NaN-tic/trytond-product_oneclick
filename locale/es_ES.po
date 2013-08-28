@@ -96,11 +96,11 @@ msgstr "Activos"
 
 msgctxt "selection:product.oneclick.view,type:"
 msgid "Goods"
-msgstr "Biene"
+msgstr "Bienes"
 
 msgctxt "selection:product.oneclick.view,type:"
 msgid "Service"
-msgstr "Servicio"
+msgstr "Servicios"
 
 msgctxt "wizard_button:product.oneclick,view,create_:"
 msgid "Create"
