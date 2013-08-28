@@ -127,6 +127,7 @@ class ProductOneClick(Wizard):
             'cost_price': vals.cost_price or 0,
             'cost_price_method': vals.cost_price_method,
             'default_uom': vals.default_uom,
+            'account_category': True,
             }
         if vals.salable:
             values.update({
