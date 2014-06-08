@@ -72,11 +72,11 @@ msgstr "Tipo"
 
 msgctxt "model:ir.action,name:wizard_product_oneclick"
 msgid "Create Product"
-msgstr "Crear un producto"
+msgstr "Crear producto"
 
 msgctxt "model:ir.ui.menu,name:menu_product_oneclick_wizard"
 msgid "Create Product"
-msgstr "Crear un producto"
+msgstr "Crear producto"
 
 msgctxt "model:product.oneclick.view,name:"
 msgid "Product OneClick View"
@@ -101,6 +101,26 @@ msgstr "Bienes"
 msgctxt "selection:product.oneclick.view,type:"
 msgid "Service"
 msgstr "Servicios"
+
+msgctxt "view:product.oneclick.view:"
+msgid "Create product"
+msgstr "Crear producto"
+
+msgctxt "view:product.oneclick.view:"
+msgid "Description"
+msgstr "Descripción"
+
+msgctxt "view:product.oneclick.view:"
+msgid "General"
+msgstr "General"
+
+msgctxt "view:product.oneclick.view:"
+msgid "Purchase"
+msgstr "Compra"
+
+msgctxt "view:product.oneclick.view:"
+msgid "Sale"
+msgstr "Venta"
 
 msgctxt "wizard_button:product.oneclick,view,create_:"
 msgid "Create"

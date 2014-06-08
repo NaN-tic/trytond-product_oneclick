@@ -102,6 +102,26 @@ msgctxt "selection:product.oneclick.view,type:"
 msgid "Service"
 msgstr "Serveis"
 
+msgctxt "view:product.oneclick.view:"
+msgid "Create product"
+msgstr "Crea producte"
+
+msgctxt "view:product.oneclick.view:"
+msgid "Description"
+msgstr "Descripció"
+
+msgctxt "view:product.oneclick.view:"
+msgid "General"
+msgstr "General"
+
+msgctxt "view:product.oneclick.view:"
+msgid "Purchase"
+msgstr "Compra"
+
+msgctxt "view:product.oneclick.view:"
+msgid "Sale"
+msgstr "Venda"
+
 msgctxt "wizard_button:product.oneclick,view,create_:"
 msgid "Create"
 msgstr "Crea"
