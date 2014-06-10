@@ -40,7 +40,7 @@ setup(name='trytonzz_product_oneclick',
     ],
     package_data={
         'trytond.modules.product_oneclick': info.get('xml', [])
-            + ['tryton.cfg', 'locale/*.po'],
+            + ['tryton.cfg', 'view/*.xml', 'locale/*.po']),
     },
     classifiers=[
         'Development Status :: 5 - Production/Stable',
