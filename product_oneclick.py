@@ -7,10 +7,7 @@ from trytond.pyson import Eval, PYSONEncoder
 from trytond.wizard import Wizard, StateView, StateAction, StateTransition, \
     Button
 
-__all__ = [
-    'ProductOneClickView',
-    'ProductOneClick',
-]
+__all__ = ['ProductOneClickView', 'ProductOneClick']
 
 
 class ProductOneClickView(ModelView):
@@ -150,11 +147,10 @@ class ProductOneClick(Wizard):
         return values
 
     def transition_create_(self, values=False):
-        '''
-        Create a product
-        '''
-        Template = Pool().get('product.template')
-        Product = Pool().get('product.product')
+        '''Create a product'''
+        pool = Pool()
+        Template = pool.get('product.template')
+        Product = pool.get('product.product')
         name = self.view.name
         code = self.view.code
 
