@@ -6,6 +6,8 @@ from trytond.pool import Pool
 from trytond.pyson import Eval, PYSONEncoder
 from trytond.wizard import Wizard, StateView, StateAction, StateTransition, \
     Button
+from trytond.config import CONFIG
+DIGITS = int(CONFIG.get('unit_price_digits', 4))
 
 __all__ = ['ProductOneClickView', 'ProductOneClick']
 
@@ -22,11 +24,11 @@ class ProductOneClickView(ModelView):
             ('service', 'Service')
             ], 'Type', required=True)
     category = fields.Many2One('product.category', 'Category', required=True)
-    list_price = fields.Numeric('List Price', digits=(16, 4),
+    list_price = fields.Numeric('List Price', digits=(16, DIGITS),
         states={
             'required': Eval('salable', False),
             })
-    cost_price = fields.Numeric('Cost Price', digits=(16, 4),
+    cost_price = fields.Numeric('Cost Price', digits=(16, DIGITS),
         states={
             'required': Eval('purchasable', False),
             })
