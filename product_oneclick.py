@@ -80,7 +80,7 @@ class ProductOneClickView(ModelView):
         Template = Pool().get('product.template')
         template = Template(id=None, default_uom=self.default_uom,
                 salable=self.salable, sale_uom=self.sale_uom)
-        return template.on_change_with_sale_uom()
+        return template.on_change_default_uom().get('sale_uom', None)
 
     @fields.depends('default_uom', 'purchase_uom', 'purchasable')
     def on_change_with_purchase_uom(self):
