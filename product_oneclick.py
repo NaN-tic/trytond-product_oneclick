@@ -6,10 +6,11 @@ from trytond.pool import Pool
 from trytond.pyson import Eval, PYSONEncoder
 from trytond.wizard import Wizard, StateView, StateAction, StateTransition, \
     Button
-from trytond.config import config
-DIGITS = int(config.get('digits', 'unit_price_digits', 4))
+from trytond.config import config as config_
 
 __all__ = ['ProductOneClickView', 'ProductOneClick']
+
+DIGITS = config_.getint('product', 'price_decimal', default=4)
 
 
 class ProductOneClickView(ModelView):
