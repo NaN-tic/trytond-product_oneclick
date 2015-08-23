@@ -104,8 +104,7 @@ class ProductOneClickView(ModelView):
                     }),
             ('//page[@id="purchase"]', 'states', {
                     'invisible': Not(Bool(Eval('purchasable'))),
-                    }),
-                    ]
+                    })]
 
 
 class ProductOneClick(Wizard):
