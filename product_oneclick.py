@@ -3,7 +3,7 @@
 # the full copyright notices and license terms.
 from trytond.model import ModelView, fields
 from trytond.pool import Pool
-from trytond.pyson import Eval, PYSONEncoder
+from trytond.pyson import Eval, Not, Bool, PYSONEncoder
 from trytond.wizard import Wizard, StateView, StateAction, StateTransition, \
     Button
 from trytond.config import config as config_
@@ -95,6 +95,17 @@ class ProductOneClickView(ModelView):
         Template = Pool().get('product.template')
         template = Template(id=None, default_uom=self.default_uom)
         return template.on_change_with_default_uom_category(name)
+
+    @classmethod
+    def view_attributes(cls):
+        return super(ProductOneClickView, cls).view_attributes() + [
+            ('//page[@id="sale"]', 'states', {
+                    'invisible': Not(Bool(Eval('salable'))),
+                    }),
+            ('//page[@id="purchase"]', 'states', {
+                    'invisible': Not(Bool(Eval('purchasable'))),
+                    }),
+                    ]
 
 
 class ProductOneClick(Wizard):

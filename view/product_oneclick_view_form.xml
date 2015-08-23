@@ -19,15 +19,13 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
             <label name="default_uom"/>
             <field name="default_uom"/>
         </page>
-        <page string="Sale" id="sale"
-            states="{'invisible': Not(Bool(Eval('salable')))}">
+        <page string="Sale" id="sale">
             <label name="list_price"/>
             <field name="list_price"/>
             <label name="sale_uom"/>
             <field name="sale_uom"/>
         </page>
-        <page string="Purchase" id="purchase"
-            states="{'invisible': Not(Bool(Eval('purchasable')))}">
+        <page string="Purchase" id="purchase">
             <label name="cost_price"/>
             <field name="cost_price"/>
             <label name="cost_price_method"/>
