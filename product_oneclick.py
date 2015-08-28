@@ -76,25 +76,21 @@ class ProductOneClickView(ModelView):
     def default_cost_price_method():
         return 'fixed'
 
-    @fields.depends('default_uom', 'sale_uom', 'salable')
-    def on_change_with_sale_uom(self):
+    @fields.depends('default_uom', 'sale_uom', 'salable',
+        'purchase_uom', 'purchasable')
+    def on_change_default_uom(self):
         Template = Pool().get('product.template')
-        template = Template(id=None, default_uom=self.default_uom,
-                salable=self.salable, sale_uom=self.sale_uom)
-        return template.on_change_default_uom().get('sale_uom', None)
 
-    @fields.depends('default_uom', 'purchase_uom', 'purchasable')
-    def on_change_with_purchase_uom(self):
-        Template = Pool().get('product.template')
-        template = Template(id=None, default_uom=self.default_uom,
-                purchasable=self.purchasable, purchase_uom=self.purchase_uom)
-        return template.on_change_default_uom().get('purchase_uom', None)
+        template = Template()
+        template.default_uom = self.default_uom
+        template.salable = self.salable
+        template.sale_uom = self.sale_uom
+        template.purchasable = self.purchasable
+        template.purchase_uom = self.purchase_uom
+        template.on_change_default_uom()
 
-    @fields.depends('default_uom')
-    def on_change_with_default_uom_category(self, name=None):
-        Template = Pool().get('product.template')
-        template = Template(id=None, default_uom=self.default_uom)
-        return template.on_change_with_default_uom_category(name)
+        self.sale_uom = template.sale_uom
+        self.purchase_uom = template.purchase_uom
 
     @classmethod
     def view_attributes(cls):
