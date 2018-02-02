@@ -44,20 +44,20 @@ class ProductOneClickView(ModelView):
     salable = fields.Boolean('Salable')
     sale_uom = fields.Many2One('product.uom', 'Sale UOM',
         states={
-            'invisible':~Eval('salable', False),
+            'invisible': ~Eval('salable', False),
             'required': Eval('salable', False),
             },
-        #~ domain=[
-            #~ ('category', '=', Eval('default_uom_category')),
-            #~ ],
+        domain=[
+            ('category', '=', Eval('default_uom_category')),
+            ],
         depends=['salable', 'default_uom_category'])
     purchasable = fields.Boolean('Purchasable')
     purchase_uom = fields.Many2One('product.uom', 'Purchase UOM',
         states={
-            'invisible':~Eval('purchasable'),
+            'invisible': ~Eval('purchasable'),
             'required': Eval('purchasable', False),
             },
-        #~ domain=[('category', '=', Eval('default_uom_category'))],
+        domain=[('category', '=', Eval('default_uom_category'))],
         depends=['purchasable', 'default_uom_category'])
 
     @staticmethod
@@ -91,6 +91,11 @@ class ProductOneClickView(ModelView):
 
         self.sale_uom = template.sale_uom
         self.purchase_uom = template.purchase_uom
+
+    @fields.depends('default_uom')
+    def on_change_with_default_uom_category(self):
+        if self.default_uom:
+            return self.default_uom.category.id
 
     @classmethod
     def view_attributes(cls):
