@@ -7,6 +7,8 @@ from trytond.pyson import Eval, Not, Bool, PYSONEncoder
 from trytond.wizard import Wizard, StateView, StateAction, StateTransition, \
     Button
 from trytond.config import config as config_
+from trytond.i18n import gettext
+from trytond.exceptions import UserError
 
 __all__ = ['ProductOneClickView', 'ProductOneClick']
 
@@ -121,14 +123,6 @@ class ProductOneClick(Wizard):
     open_ = StateAction('product.act_product_form')
 
     @classmethod
-    def __setup__(cls):
-        super(ProductOneClick, cls).__setup__()
-        cls._error_messages.update({
-                'warning': 'Warning',
-                'product_exist': 'Product %s (%s) already exist.',
-                })
-
-    @classmethod
     def get_template_values(self, vals):
         values = {
             'name': vals.name,
@@ -168,15 +162,17 @@ class ProductOneClick(Wizard):
         name = self.view.name
         code = self.view.code
 
-        products = None
-        if name:
-            products = Template.search([('name', '=', name)])
-        if code:
-            products = Product.search([('code', '=', code)])
-        if products:
-            self.raise_user_error(error="warning",
-                error_description="product_exist",
-                error_description_args=(name, code))
+        product = None
+        if name and not code:
+            product, = (Template.search([('name', '=', name)], limit=1)
+                or [None])
+        else:
+            product, = Product.search([('code', '=', code)], limit=1) or [None]
+        if product:
+            raise UserError(gettext('product_exist',
+                    name=product.rec_name,
+                    code=product.code,
+                    ))
 
         vals = self.view
         tpl_values = self.get_template_values(vals)
