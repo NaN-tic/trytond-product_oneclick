@@ -1,14 +1,6 @@
-# 
+#
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
-
-msgctxt "error:product.oneclick:"
-msgid "Product %s (%s) already exist."
-msgstr "El producte %s (%s) ja existeix."
-
-msgctxt "error:product.oneclick:"
-msgid "Warning"
-msgstr "Atenció"
 
 msgctxt "field:product.oneclick.view,category:"
 msgid "Category"
@@ -37,10 +29,6 @@ msgstr "Categoria per defecte UdM"
 msgctxt "field:product.oneclick.view,description:"
 msgid "Description"
 msgstr "Descripció"
-
-msgctxt "field:product.oneclick.view,id:"
-msgid "ID"
-msgstr "ID"
 
 msgctxt "field:product.oneclick.view,list_price:"
 msgid "List Price"
@@ -74,6 +62,10 @@ msgctxt "model:ir.action,name:wizard_product_oneclick"
 msgid "Create Product"
 msgstr "Crea producte"
 
+msgctxt "model:ir.message,text:product_exist"
+msgid "Product %(name)s (%(code)s) already exist."
+msgstr ""
+
 msgctxt "model:ir.ui.menu,name:menu_product_oneclick_wizard"
 msgid "Create Product"
 msgstr "Crea producte"
@@ -101,10 +93,6 @@ msgstr "Béns"
 msgctxt "selection:product.oneclick.view,type:"
 msgid "Service"
 msgstr "Serveis"
-
-msgctxt "view:product.oneclick.view:"
-msgid "Create product"
-msgstr "Crea producte"
 
 msgctxt "view:product.oneclick.view:"
 msgid "Description"
